@@ -12,6 +12,7 @@ export interface WordItem {
   etymology?: string;
   funFact?: string;
   realityScanner?: string;
+  riddle?: string;
 }
 
 export enum GameType {
@@ -23,6 +24,7 @@ export enum GameType {
   BUBBLE_POP = 'BUBBLE_POP',
   WORD_SEARCH = 'WORD_SEARCH',
   MIND_MEMORY = 'MIND_MEMORY',
+  RIDDLE_QUEST = 'RIDDLE_QUEST',
   TREE_HOUSE = 'TREE_HOUSE'
 }
 

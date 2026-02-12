@@ -10,7 +10,8 @@ const BubblePop: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   const currentWord = WORD_LIST[currentIndex];
   
   const options = useMemo(() => {
-    const others = WORD_LIST.filter(w => w.id !== currentWord.id).sort(() => 0.5 - Math.random()).slice(0, 5);
+    // Exactly 10 options as requested: 1 correct + 9 others
+    const others = WORD_LIST.filter(w => w.id !== currentWord.id).sort(() => 0.5 - Math.random()).slice(0, 9);
     return [...others, currentWord].sort(() => 0.5 - Math.random());
   }, [currentWord, currentIndex]);
 
@@ -29,67 +30,49 @@ const BubblePop: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
   };
 
   return (
-    <div className="text-center p-6 min-h-[700px] relative overflow-hidden bg-blue-50/40 rounded-[60px] border-4 border-dashed border-blue-200 shadow-inner">
-      {/* Cuter Ocean Background */}
-      <div className="absolute top-10 left-10 text-6xl animate-float">🧸</div>
-      <div className="absolute top-20 right-20 text-7xl animate-float" style={{animationDelay: '2s'}}>🐳</div>
-      <div className="absolute bottom-40 left-10 text-6xl animate-bounce">🐙</div>
-      <div className="absolute bottom-20 right-20 text-7xl animate-bounce" style={{animationDelay: '1s'}}>🦀</div>
-      
-      {/* Sparkles */}
-      <div className="absolute top-1/4 left-1/3 text-3xl animate-pulse text-white">✨</div>
-      <div className="absolute bottom-1/3 right-1/4 text-4xl animate-pulse text-white">✨</div>
-
-      <div className="flex justify-between items-center mb-10 relative z-10 px-8">
-        <div className="bg-white/80 p-5 rounded-full wobbly-border shadow-lg">
-          <img src={POKEMON_SPRITES(POKEMON_IDS.Squirtle)} className="w-20 h-20 sticker-glow" alt="Squirtle" />
+    <div className="text-center p-8 bg-blue-50/30 rounded-[40px] border-4 border-blue-100 shadow-inner">
+      <div className="flex justify-between items-center mb-8 px-4">
+        <div className="text-left">
+            <h2 className="text-4xl font-black text-blue-500">Bubble Pop! 🫧</h2>
+            <div className="text-2xl font-bold text-gray-500 mt-1">Find the bubble for: <span className="text-blue-600 text-3xl font-black">{currentWord.cn}</span></div>
         </div>
-        <div className="text-center">
-            <h2 className="text-6xl font-bold text-blue-400 drop-shadow-sm">Bubble Pop! 🫧</h2>
-            <p className="text-2xl text-blue-300 font-bold">Pop the correct bubble!</p>
-        </div>
-        <div className="text-4xl font-bold bg-white/90 px-10 py-4 wobbly-border text-pink-400 shadow-sm">
-          ⭐ {correctCount}
+        <div className="text-3xl font-black bg-white px-8 py-3 rounded-2xl border-2 border-blue-200 text-blue-500 shadow-sm">
+          Pop {currentIndex + 1} / {WORD_LIST.length}
         </div>
       </div>
 
-      <div className="mb-14 relative z-10">
-        <div className="inline-block bg-white/90 px-12 py-4 rounded-full border-4 border-blue-100 shadow-xl">
-            <p className="text-5xl font-bold text-blue-500">{currentWord.cn}</p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-3 gap-12 mb-12 justify-items-center relative z-10 px-10">
+      {/* 10 Bubbles in a clean 2x5 or responsive grid */}
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-10">
         {options.map((opt, i) => (
           <button
             key={`${currentIndex}-${i}`}
             onClick={() => handlePop(opt)}
-            className="bubble w-44 h-44 flex items-center justify-center text-3xl font-bold text-blue-600 hover:scale-110 hover:bg-white/80 transition-all active:scale-95 shadow-2xl p-6 text-center leading-tight relative overflow-hidden group"
-            style={{ animation: `float ${4 + i * 0.5}s ease-in-out infinite` }}
+            className="group relative aspect-square flex items-center justify-center bg-white rounded-full border-4 border-blue-200 shadow-md hover:border-blue-400 hover:scale-105 active:scale-90 transition-all p-4 overflow-hidden"
           >
-            <div className="absolute top-2 left-4 text-2xl opacity-20 group-hover:opacity-40">✨</div>
-            {opt.en}
+            {/* Glossy Bubble Effect */}
+            <div className="absolute top-2 left-4 w-4 h-2 bg-white/60 rounded-full rotate-[-45deg]"></div>
+            <span className="text-xl font-black text-blue-800 leading-tight z-10 break-words drop-shadow-sm">
+              {opt.en}
+            </span>
           </button>
         ))}
       </div>
 
-      {/* Cuter Shell Rewards Section */}
-      <div className="relative z-10 flex flex-col items-center mt-6">
-        <div className="relative p-10 bg-white/60 rounded-[100px] border-2 border-dashed border-blue-200">
-          <div className="text-[110px] drop-shadow-2xl animate-bounce">🐚</div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-wrap gap-2 justify-center max-w-[280px]">
-             {rewardHistory.map((pId, idx) => (
-               <img 
-                 key={idx} 
-                 src={POKEMON_SPRITES(pId)} 
-                 className="w-14 h-14 animate-float hover:scale-150 transition-transform"
-                 style={{ animationDelay: `${idx * 0.2}s` }}
-                 alt="reward" 
-               />
-             ))}
-          </div>
+      <div className="bg-white/60 p-6 rounded-3xl border-2 border-dashed border-blue-200 flex flex-col items-center">
+        <p className="text-xl font-bold text-blue-400 mb-4 flex items-center gap-2">
+          Your Collection: {rewardHistory.length} Friends Found! <img src={POKEMON_SPRITES(POKEMON_IDS.Squirtle)} className="w-8 h-8" alt="squirtle" />
+        </p>
+        <div className="flex flex-wrap gap-3 justify-center">
+           {rewardHistory.map((pId, idx) => (
+             <img 
+               key={idx} 
+               src={POKEMON_SPRITES(pId)} 
+               className="w-14 h-14 animate-float-slow drop-shadow-sm"
+               alt="reward" 
+             />
+           ))}
+           {rewardHistory.length === 0 && <p className="text-gray-400 italic">Pop correct bubbles to win Pokemon stickers!</p>}
         </div>
-        <p className="text-3xl font-bold text-blue-400 mt-4 tracking-widest">My Sea Friends Collection 🎀</p>
       </div>
     </div>
   );

@@ -27,50 +27,35 @@ const EmojiDetective: React.FC<EmojiDetectiveProps> = ({ onComplete }) => {
         } else {
           onComplete();
         }
-      }, 1000);
+      }, 800);
     } else {
       setShowFeedback('wrong');
-      setTimeout(() => setShowFeedback('none'), 1000);
+      setTimeout(() => setShowFeedback('none'), 800);
     }
   };
 
   return (
-    <div className="text-center p-4">
-      <div className="flex justify-between items-center mb-12 px-6">
-        <div className="bg-pink-100 p-4 rounded-full animate-float wobbly-border shadow-lg">
-           <img src={POKEMON_SPRITES(POKEMON_IDS.Bulbasaur)} className="w-20 h-20" alt="Bulbasaur" />
-        </div>
-        <div className="text-center">
-            <h2 className="text-6xl font-bold text-pink-400 mb-2 drop-shadow-sm">Emoji Detective 🔍</h2>
-            <div className="flex justify-center gap-1">
-                {Array.from({length: 5}).map((_, i) => <span key={i} className="text-xl animate-pulse">✨</span>)}
-            </div>
-        </div>
-        <div className="text-4xl font-bold bg-white px-8 py-3 wobbly-border text-blue-400">
-          {currentIndex + 1} <span className="text-pink-200">/</span> {WORD_LIST.length}
+    <div className="text-center">
+      <div className="flex justify-between items-center mb-10 px-4">
+        <h2 className="text-4xl font-black text-pink-400">Emoji Detective 🔍</h2>
+        <div className="text-2xl font-bold bg-pink-50 text-pink-500 px-6 py-2 rounded-full border-2 border-pink-100">
+          {currentIndex + 1} / {WORD_LIST.length}
         </div>
       </div>
 
-      <div className="mb-14 relative inline-block">
-        <div className="bg-white p-12 rounded-full wobbly-border shadow-xl animate-float relative z-10">
-            <div className="text-[140px] leading-none mb-4 filter drop-shadow-xl">{currentWord.emoji}</div>
-            <div className="text-5xl font-bold text-purple-400 bg-pink-50/50 px-10 py-3 rounded-full border-2 border-dashed border-pink-200">
-                {currentWord.cn}
-            </div>
-        </div>
-        {/* Decorative Blobs */}
-        <div className="absolute top-[-20px] left-[-20px] w-12 h-12 bg-pink-200 rounded-full animate-ping opacity-30"></div>
-        <div className="absolute bottom-[-10px] right-[-10px] w-8 h-8 bg-blue-200 rounded-full animate-pulse"></div>
+      <div className="bg-gray-50 rounded-3xl p-12 mb-10 border-4 border-dashed border-gray-100 inline-block w-full max-w-lg">
+          <div className="text-[140px] leading-none mb-6">{currentWord.emoji}</div>
+          <div className="text-4xl font-bold text-gray-400 bg-white px-8 py-3 rounded-2xl shadow-sm inline-block">
+              {currentWord.cn}
+          </div>
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
-        {options.map((opt, i) => (
+      <div className="grid grid-cols-2 gap-6 max-w-4xl mx-auto px-4">
+        {options.map((opt) => (
           <button
             key={opt.id}
             onClick={() => handleSelect(opt)}
-            className={`p-10 text-3xl font-bold text-pink-600 transition-all crayon-card shadow-xl transform hover:-translate-y-3 active:scale-90 flex items-center justify-center text-center ${
-                i % 2 === 0 ? 'bg-pink-50 hover:bg-pink-100' : 'bg-blue-50 hover:bg-blue-100'
-            }`}
+            className="p-8 text-3xl font-bold text-gray-700 bg-white border-2 border-gray-100 rounded-2xl hover:border-pink-300 hover:text-pink-500 transition-all shadow-sm flex items-center justify-center h-32"
           >
             {opt.en}
           </button>
@@ -78,9 +63,9 @@ const EmojiDetective: React.FC<EmojiDetectiveProps> = ({ onComplete }) => {
       </div>
 
       {showFeedback !== 'none' && (
-        <div className={`fixed inset-0 flex items-center justify-center pointer-events-none z-50 bg-white/60 backdrop-blur-md`}>
-          <div className={`text-[120px] font-bold ${showFeedback === 'correct' ? 'text-pink-400' : 'text-blue-400'} animate-bounce`}>
-            {showFeedback === 'correct' ? '🎀 YAY! 🎀' : '🧸 OOPS 🧸'}
+        <div className="fixed inset-0 flex items-center justify-center pointer-events-none z-50">
+          <div className={`text-8xl font-black px-12 py-6 rounded-full shadow-2xl animate-bounce ${showFeedback === 'correct' ? 'bg-green-400 text-white' : 'bg-red-400 text-white'}`}>
+            {showFeedback === 'correct' ? 'GREAT!' : 'OOPS!'}
           </div>
         </div>
       )}

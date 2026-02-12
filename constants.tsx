@@ -8,7 +8,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'neigh (near) + bour (dweller) + hood (state)',
     etymology: '來自古英語 "neahgebur"，意思是住在附近的人。',
     funFact: '你的鄰居可能就是你最好的朋友！',
-    realityScanner: '城市是由許多小社區組成的，每個社區都有自己的特色。'
+    realityScanner: '城市是由許多小社區組成的，每個社區都有自己的特色。',
+    riddle: 'I am the area where you live together with your friends and neighbours. What am I?'
   },
   { 
     id: '2', en: 'post office', cn: '郵政局', emoji: '📯', phonetic: '/pəʊst ˈɒfɪs/',
@@ -16,7 +17,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'post (mail) + office (workplace)',
     etymology: 'Post 來自拉丁語 "posita"，意為「放置的地方」。',
     funFact: '世界上最古老的郵局已經開了超過300年了！',
-    realityScanner: '除了寄信，現代郵局還能處理護照和保險。'
+    realityScanner: '除了寄信，現代郵局還能處理護照和保險。',
+    riddle: 'You visit me when you want to send a letter or buy some stamps. What am I?'
   },
   { 
     id: '3', en: 'post a parcel', cn: '寄包裹', emoji: '📦', phonetic: '/pəʊst ə ˈpɑːsl/',
@@ -24,7 +26,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'post (send) + parcel (small part)',
     etymology: 'Parcel 源自拉丁語 "particula"，意思是小部分。',
     funFact: '以前有人甚至試過通過郵件「寄」小孩子（這現在是禁止的！）',
-    realityScanner: '包裹通常會通過飛機或貨車運送到世界各地。'
+    realityScanner: '包裹通常會通過飛機或貨車運送到世界各地。',
+    riddle: 'I am the action of sending a big box filled with gifts through the mail. What am I?'
   },
   { 
     id: '4', en: 'post a letter', cn: '寄信', emoji: '✉️', phonetic: '/pəʊst ə ˈletə/',
@@ -32,7 +35,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'post (mail) + letter (written message)',
     etymology: 'Letter 來自法語 "lettre"，意思是寫好的符號。',
     funFact: '在1840年之前，寄信的人是不付錢的，而是收信的人付錢！',
-    realityScanner: '雖然現在有電子郵件，但收到手寫信件還是很溫馨。'
+    realityScanner: '雖然現在有電子郵件，但收到手寫信件還是很溫馨。',
+    riddle: 'I am the action of putting a written message into an envelope and sending it. What am I?'
   },
   { 
     id: '5', en: 'bank', cn: '銀行', emoji: '🏦', phonetic: '/bæŋk/',
@@ -40,7 +44,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'bank (a counter for money)',
     etymology: '來自意大利語 "banca"，意思是長凳或櫃檯。',
     funFact: '豬仔錢罌（Piggy Bank）最早其實是用一種叫 "pygg" 的橙色粘土做的。',
-    realityScanner: '銀行現在大多使用電腦管理，你還可以用手機銀行轉賬。'
+    realityScanner: '銀行現在大多使用電腦管理，你還可以用手機銀行轉賬。',
+    riddle: 'I am a very safe building where people keep their money. What am I?'
   },
   { 
     id: '6', en: 'bakery', cn: '麵包店', emoji: '🍞', phonetic: '/ˈbeɪkəri/',
@@ -48,7 +53,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'bake (cook with dry heat) + ery (place)',
     etymology: 'Bake 來自古英語 "bacan"。',
     funFact: '古埃及人是世界上最早發明專業烤爐和烘烤麵包的人。',
-    realityScanner: '麵包店不僅賣麵包，還有甜點和生日蛋糕。'
+    realityScanner: '麵包店不僅賣麵包，還有甜點和生日蛋糕。',
+    riddle: 'I smell like fresh bread and sell yummy cakes and cookies. What am I?'
   },
   { 
     id: '7', en: 'jewellery shop', cn: '珠寶店', emoji: '💎', phonetic: '/ˈdʒuːəlri ʃɒp/',
@@ -56,7 +62,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'jewel (gem) + lery (collection)',
     etymology: '來自古法語 "jouel"，意為玩具或遊戲。',
     funFact: '鑽石其實是純碳在高壓下形成的，和鉛筆芯的成份一樣！',
-    realityScanner: '珠寶店通常有非常嚴密的防盜系統。'
+    realityScanner: '珠寶店通常有非常嚴密的防盜系統。',
+    riddle: 'I sell shiny rings, necklaces, and beautiful diamonds. What am I?'
   },
   { 
     id: '8', en: 'clinic', cn: '診所', emoji: '🏥', phonetic: '/ˈklɪnɪk/',
@@ -64,7 +71,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'clin (slope/bed) + ic (pertaining to)',
     etymology: '源自希臘語 "klinike"，意思是「床邊的醫療」。',
     funFact: '以前的診所醫生會騎馬去病人家中。',
-    realityScanner: '診所是當你感到輕微不適時第一個要去的地方。'
+    realityScanner: '診所是當你感到輕微不適時第一個要去的地方。',
+    riddle: 'You visit me when you have a small cough or a cold. I am smaller than a hospital. What am I?'
   },
   { 
     id: '9', en: 'department store', cn: '百貨公司', emoji: '🏬', phonetic: '/dɪˈpɑːtmənt stɔː/',
@@ -72,7 +80,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'de (away) + part (section) + ment (state)',
     etymology: 'Department 意思是一個整體的各個部分。',
     funFact: '第一家現代百貨公司是在19世紀中期的法國巴黎開業的。',
-    realityScanner: '百貨公司裡什麼都有，從化妝品到廚具。'
+    realityScanner: '百貨公司裡什麼都有，從化妝品到廚具。',
+    riddle: 'I am a huge shop with many floors that sells clothes, toys, and everything else. What am I?'
   },
   { 
     id: '10', en: 'buy furniture', cn: '買傢俬', emoji: '🪑', phonetic: '/baɪ ˈfɜːnɪtʃə/',
@@ -80,7 +89,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'buy (get for money) + furnish (equip)',
     etymology: 'Furniture 來自法語 "fournir"，意為供應。',
     funFact: '世界上最古老的椅子大約有4500年的歷史！',
-    realityScanner: '現代傢俬設計非常講究符合人體工學，讓你坐得更舒服。'
+    realityScanner: '現代傢俬設計非常講究符合人體工學，讓你坐得更舒服。',
+    riddle: 'I am what you do when your new house needs a sofa, a table, or a bed. What am I?'
   },
   { 
     id: '11', en: 'sports centre', cn: '體育館', emoji: '🏀', phonetic: '/spɔːt ˈsentə/',
@@ -88,7 +98,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'sports (games) + centre (middle/place)',
     etymology: 'Sport 是 "disport" 的縮寫，意思是消遣。',
     funFact: '有些體育館的草皮是可以像抽屜一樣推出去曬太陽的！',
-    realityScanner: '體育館內通常有羽毛球場、籃球場和游泳池。'
+    realityScanner: '體育館內通常有羽毛球場、籃球場和游泳池。',
+    riddle: 'You come to me to play basketball, go swimming, or exercise. What am I?'
   },
   { 
     id: '12', en: 'supermarket', cn: '超級市場', emoji: '🛒', phonetic: '/ˈsuːpəmɑːkɪt/',
@@ -96,7 +107,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'super (big/great) + market (trade place)',
     etymology: 'Market 來自拉丁語 "mercatus"，意為貿易。',
     funFact: '超市購物車的設計是為了讓你買更多的東西！',
-    realityScanner: '超市通常會把必需品放在店鋪最深處，讓你走過更多貨架。'
+    realityScanner: '超市通常會把必需品放在店鋪最深處，讓你走過更多貨架。',
+    riddle: 'I have many long aisles of food and big carts for your shopping. What am I?'
   },
   { 
     id: '13', en: 'buy groceries', cn: '購買食品雜貨', emoji: '🍏', phonetic: '/baɪ ˈɡrəʊsəriz/',
@@ -104,7 +116,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'grocer (one who sells by gross) + ies (plural)',
     etymology: 'Grocer 來自古法語 "grossier"，意思是批發商。',
     funFact: '以前的雜貨商會親自送貨到你家門口。',
-    realityScanner: '食品雜貨包括新鮮蔬菜、肉類和日常用品。'
+    realityScanner: '食品雜貨包括新鮮蔬菜、肉類 and 日常用品。',
+    riddle: 'I am the action of getting food like milk, vegetables, and fruit for your kitchen. What am I?'
   },
   { 
     id: '14', en: 'train station', cn: '火車站', emoji: '🚉', phonetic: '/treɪn ˈsteɪʃən/',
@@ -112,15 +125,17 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'train (connected cars) + station (standing place)',
     etymology: 'Station 來自拉丁語 "statio"，意思是站立。',
     funFact: '世界上最繁忙的火車站在日本新宿，每天有幾百萬人經過。',
-    realityScanner: '火車站不僅是交通樞紐，裡面還有很多商店和餐廳。'
+    realityScanner: '火車站不僅是交通樞紐，裡面還有很多商店和餐廳。',
+    riddle: 'I am the place where you wait for the MTR or a long locomotive to take you home. What am I?'
   },
   { 
     id: '15', en: 'health and beauty store', cn: '健康美容用品店', emoji: '💄', phonetic: '/helθ ənd ˈbjuːti stɔː/',
     syllables: 'health and beau-ty store (5)',
     breakdown: 'health (well-being) + beauty (appearance)',
     etymology: 'Beauty 來自拉丁語 "bellus"，意為美麗。',
-    funFact: '古代人會用鉛和水銀來化妝，這對身體非常有害！',
-    realityScanner: '這種商店賣藥品、洗髮水、化妝品和護膚品。'
+    funFact: '古代人會用鉛 and 水銀來化妝，這對身體非常有害！',
+    realityScanner: '這種商店賣藥品、洗髮水、化妝品 and 護膚品。',
+    riddle: 'I sell things to make you feel well, like medicine, and things to make you look nice, like lipstick. What am I?'
   },
   { 
     id: '16', en: 'learning centre', cn: '學習中心', emoji: '🏫', phonetic: '/ˈlɜːnɪŋ ˈsentə/',
@@ -128,7 +143,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'learn (gain skill) + centre (place)',
     etymology: 'Learn 來自古英語 "leornian"。',
     funFact: '大腦在你學習新事物時會建立新的神經連接！',
-    realityScanner: '學習中心提供各種課程，如藝術、樂器和學術補習。'
+    realityScanner: '學習中心提供各種課程，如藝術、樂器 and 學術補習。',
+    riddle: 'You come to me after school to learn music, painting, or English. What am I?'
   },
   { 
     id: '17', en: 'take a course', cn: '修讀一個課程', emoji: '📜', phonetic: '/teɪk ə kɔːs/',
@@ -136,7 +152,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'take (participate) + course (running track)',
     etymology: 'Course 來自拉丁語 "cursus"，意為奔跑的路徑。',
     funFact: '現在你可以在網絡上學習哈佛大學的免費課程！',
-    realityScanner: '修讀課程可以讓你學會一項新的技能。'
+    realityScanner: '修讀課程可以讓你學會一項新的技能。',
+    riddle: 'I am what you do when you sign up to learn a new skill like coding or dancing. What am I?'
   },
   { 
     id: '18', en: 'convenience store', cn: '便利店', emoji: '🏪', phonetic: '/kənˈviːniəns stɔː/',
@@ -144,7 +161,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'con (together) + venire (come) + store',
     etymology: 'Convenience 意思是「來到一起」，非常方便。',
     funFact: '第一家 7-Eleven 是在1927年的美國達拉斯開業的。',
-    realityScanner: '便利店通常24小時營業，方便你隨時買零食。'
+    realityScanner: '便利店通常24小時營業，方便你隨時買零食。',
+    riddle: 'I am a small shop like 7-Eleven that is open late and is very easy to find. What am I?'
   },
   { 
     id: '19', en: 'hospital', cn: '醫院', emoji: '🏥', phonetic: '/ˈhɒspɪtl/',
@@ -152,7 +170,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'host (guest) + pital (place)',
     etymology: '來自拉丁語 "hospitalis"，原本是招待客人的地方（飯店也是同根詞）。',
     funFact: '有些醫院裡會有專門的「醫院小丑」來逗生病的小朋友開心。',
-    realityScanner: '醫院擁有專業的醫療團隊和先進的救命儀器。'
+    realityScanner: '醫院擁有專業的醫療團隊 and 先進的救命儀器。',
+    riddle: 'I have many doctors, nurses, and beds for people who are very sick or hurt. What am I?'
   },
   { 
     id: '20', en: 'walk straight ahead', cn: '直走', emoji: '➡️', phonetic: '',
@@ -160,7 +179,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'walk (move on foot) + straight (linear) + ahead (in front)',
     etymology: 'Ahead 意思是在你的頭部前面。',
     funFact: '如果你在森林裡蒙住眼睛走，你其實會走成一個圓圈！',
-    realityScanner: '導航系統最常用的指令就是「直行」。'
+    realityScanner: '導航系統最常用的指令就是「直行」。',
+    riddle: 'I am the instruction to keep moving forward without turning left or right. What am I?'
   },
   { 
     id: '21', en: 'turn', cn: '轉', emoji: '↩️', phonetic: '',
@@ -168,7 +188,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'turn (rotate)',
     etymology: '來自拉丁語 "tornare"，意思是旋轉車床。',
     funFact: '有些動物如鴨子，能在睡眠中只轉動一半的大腦！',
-    realityScanner: '迷路時最重要的一步就是及時掉頭或轉彎。'
+    realityScanner: '迷路時最重要的一步就是及時掉頭或轉彎。',
+    riddle: 'I am what you do when you reach the corner of the street and go in a new direction. What am I?'
   },
   { 
     id: '22', en: 'opposite', cn: '在…… 對面', emoji: '↔️', phonetic: '',
@@ -176,7 +197,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'ob (against) + ponere (set/place)',
     etymology: '意思是放在對面的位置。',
     funFact: '鏡子裡看到的你，就是你的 "opposite" 鏡像。',
-    realityScanner: '問路時，人們常說「就在銀行對面」。'
+    realityScanner: '問路時，人們常說「就在銀行對面」。',
+    riddle: 'I describe being on the other side of the street or facing something. What am I?'
   },
   { 
     id: '23', en: 'nearest', cn: '最近的', emoji: '📍', phonetic: '',
@@ -184,7 +206,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'near (close) + est (most)',
     etymology: '來自古英語 "neah"。',
     funFact: '月球是離地球最近（nearest）的天然星球！',
-    realityScanner: '在緊急情況下，你應該找最近的警察局。'
+    realityScanner: '在緊急情況下，你應該找最近的警察局。',
+    riddle: 'I mean the one that is the very shortest distance away from you. What am I?'
   },
   { 
     id: '24', en: 'fantastic', cn: '好棒', emoji: '✨', phonetic: '',
@@ -192,7 +215,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'fantasy (imagination) + ic (suffix)',
     etymology: '來自希臘語 "phantastikos"，意思是想像力豐富。',
     funFact: '以前 "fantastic" 意思是指不真實或奇怪的東西，現在是讚美。',
-    realityScanner: '當你完成所有遊戲時，你的表現就是 Fantastic！'
+    realityScanner: '當你完成所有遊戲時，你的表現就是 Fantastic！',
+    riddle: 'I am an exciting word that means something is amazing, wonderful, or very good. What am I?'
   },
   { 
     id: '25', en: 'nearby', cn: '附近', emoji: '🗺️', phonetic: '',
@@ -200,7 +224,8 @@ export const WORD_LIST: WordItem[] = [
     breakdown: 'near (close) + by (side)',
     etymology: '意思是就在身邊。',
     funFact: '你身邊隨時都有幾百萬隻肉眼看不見的微生物！',
-    realityScanner: '附近的便利店是鄰居們常去的地方。'
+    realityScanner: '附近的便利店是鄰居們常去的地方。',
+    riddle: 'I mean that something is close to where you are right now. Not far away. What am I?'
   },
 ];
 
