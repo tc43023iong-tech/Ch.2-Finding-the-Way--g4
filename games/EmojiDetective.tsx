@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { WORD_LIST, POKEMON_SPRITES, POKEMON_IDS } from '../constants';
+import { playSound } from '../utils/sounds';
 
 interface EmojiDetectiveProps {
   onComplete: () => void;
@@ -19,6 +20,7 @@ const EmojiDetective: React.FC<EmojiDetectiveProps> = ({ onComplete }) => {
 
   const handleSelect = (word: typeof currentWord) => {
     if (word.id === currentWord.id) {
+      playSound('correct');
       setShowFeedback('correct');
       setTimeout(() => {
         if (currentIndex < WORD_LIST.length - 1) {
@@ -29,6 +31,7 @@ const EmojiDetective: React.FC<EmojiDetectiveProps> = ({ onComplete }) => {
         }
       }, 800);
     } else {
+      playSound('wrong');
       setShowFeedback('wrong');
       setTimeout(() => setShowFeedback('none'), 800);
     }

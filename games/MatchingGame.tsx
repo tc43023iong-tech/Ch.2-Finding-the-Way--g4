@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { WORD_LIST, POKEMON_SPRITES, POKEMON_IDS } from '../constants';
+import { playSound } from '../utils/sounds';
 
 interface MatchingGameProps {
   onComplete: () => void;
@@ -13,6 +14,8 @@ const MatchingGame: React.FC<MatchingGameProps> = ({ onComplete }) => {
   const [matchedIds, setMatchedIds] = useState<string[]>([]);
   
   const [currentSet, setCurrentSet] = useState<any[]>([]);
+  const [enOptions, setEnOptions] = useState<any[]>([]);
+  const [cnOptions, setCnOptions] = useState<any[]>([]);
 
   useEffect(() => {
     const start = rounds * 5;
@@ -28,16 +31,15 @@ const MatchingGame: React.FC<MatchingGameProps> = ({ onComplete }) => {
     setCnOptions(cnSide);
   }, [rounds]);
 
-  const [enOptions, setEnOptions] = useState<any[]>([]);
-  const [cnOptions, setCnOptions] = useState<any[]>([]);
-
   useEffect(() => {
     if (selectedEn && selectedCn) {
       if (selectedEn === selectedCn) {
+        playSound('correct');
         setMatchedIds(prev => [...prev, selectedEn!]);
         setSelectedEn(null);
         setSelectedCn(null);
       } else {
+        playSound('wrong');
         setTimeout(() => {
           setSelectedEn(null);
           setSelectedCn(null);

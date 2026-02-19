@@ -1,6 +1,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { WORD_LIST, POKEMON_SPRITES, POKEMON_IDS } from '../constants';
+import { playSound } from '../utils/sounds';
 
 const SENTENCES: Record<string, string> = {
   'neighbourhood': "I like living in this ______ because the people are nice.",
@@ -42,18 +43,20 @@ const FillBlanks: React.FC<{ onComplete: () => void }> = ({ onComplete }) => {
 
   const handleSelect = (word: typeof currentWord) => {
     if (word.id === currentWord.id) {
+      playSound('correct');
       if (currentIndex < WORD_LIST.length - 1) {
         setCurrentIndex(c => c + 1);
       } else {
         onComplete();
       }
+    } else {
+      playSound('wrong');
     }
   };
 
   return (
     <div className="text-center p-4">
       <div className="flex justify-between items-center mb-8">
-        {/* Fixed typo: Jigpuff -> Jigglypuff */}
         <img src={POKEMON_SPRITES(POKEMON_IDS.Jigglypuff || 39)} className="w-20 h-20" alt="Jigglypuff" />
         <h2 className="text-4xl font-bold text-pink-600">Fill in the Blanks ✍️</h2>
         <div className="text-2xl font-bold bg-white px-4 py-2 crayon-border">

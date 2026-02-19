@@ -11,6 +11,7 @@ import BubblePop from './games/BubblePop';
 import WordSearch from './games/WordSearch';
 import MindMemory from './games/MindMemory';
 import RiddleQuest from './games/RiddleQuest';
+import TugOfWar from './games/TugOfWar';
 import TreeHouse from './games/TreeHouse';
 
 const FloatingDecor = () => (
@@ -63,6 +64,8 @@ const App: React.FC = () => {
         return <MindMemory onComplete={() => completeGame(GameType.MIND_MEMORY)} />;
       case GameType.RIDDLE_QUEST:
         return <RiddleQuest onComplete={() => completeGame(GameType.RIDDLE_QUEST)} />;
+      case GameType.TUG_OF_WAR:
+        return <TugOfWar onComplete={() => completeGame(GameType.TUG_OF_WAR)} />;
       case GameType.TREE_HOUSE:
         return (
           <TreeHouse
@@ -71,7 +74,7 @@ const App: React.FC = () => {
               const gameOrder = [
                 GameType.EMOJI_DETECTIVE, GameType.MATCHING, GameType.SPELLING_BEE,
                 GameType.FILL_BLANKS, GameType.BUBBLE_POP, GameType.WORD_SEARCH,
-                GameType.MIND_MEMORY, GameType.RIDDLE_QUEST
+                GameType.MIND_MEMORY, GameType.RIDDLE_QUEST, GameType.TUG_OF_WAR
               ];
               const currentIndex = gameOrder.indexOf(gameState.completedGames[gameState.completedGames.length - 1]);
               const nextGame = gameOrder[currentIndex + 1] || GameType.WORD_LIST;
@@ -95,7 +98,7 @@ const App: React.FC = () => {
         <p className="text-2xl text-blue-400 font-bold mt-2">Level 4 Vocabulary Quest</p>
       </header>
 
-      <main className="w-full max-w-7xl bg-white p-8 md:p-12 wobbly-border relative mb-12 shadow-2xl">
+      <main className="w-full max-w-7xl bg-white p-8 md:p-12 wobbly-border relative mb-12 shadow-2xl h-[800px] overflow-hidden">
         {renderCurrentGame()}
       </main>
 

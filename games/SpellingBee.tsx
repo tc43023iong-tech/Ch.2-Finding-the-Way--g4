@@ -1,6 +1,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { WORD_LIST, POKEMON_SPRITES, POKEMON_IDS } from '../constants';
+import { playSound } from '../utils/sounds';
 
 interface SpellingBeeProps {
   onComplete: () => void;
@@ -12,42 +13,41 @@ const SpellingBee: React.FC<SpellingBeeProps> = ({ onComplete }) => {
   const currentWord = WORD_LIST[currentIndex].en.toLowerCase();
   
   const letterOptions = useMemo(() => {
-    // Collect letters, include spaces but treat spaces specially
     const letters = currentWord.split('').filter(l => l !== ' ');
-    // Add some random letters
     const extras = 'abcdefghijklmnopqrstuvwxyz'.split('').sort(() => 0.5 - Math.random()).slice(0, 4);
     return [...letters, ...extras].sort(() => 0.5 - Math.random());
   }, [currentWord]);
 
   const handleLetterClick = (char: string) => {
-    // If the next expected character in currentWord is a space, add it automatically
     let nextInput = [...input];
     const targetWithSpaces = currentWord.split('');
     
-    // Check if we need to auto-insert space
     if (targetWithSpaces[nextInput.length] === ' ') {
       nextInput.push(' ');
     }
     
-    nextInput.push(char);
-    setInput(nextInput);
+    const targetChar = targetWithSpaces[nextInput.length];
+    if (char === targetChar) {
+      playSound('correct');
+      nextInput.push(char);
+      setInput(nextInput);
 
-    // Check if correct so far
-    const currentAttempt = nextInput.join('');
-    if (currentAttempt === currentWord) {
-      setTimeout(() => {
-        if (currentIndex < WORD_LIST.length - 1) {
-          setCurrentIndex(c => c + 1);
-          setInput([]);
-        } else {
-          onComplete();
-        }
-      }, 800);
+      if (nextInput.join('') === currentWord) {
+        setTimeout(() => {
+          if (currentIndex < WORD_LIST.length - 1) {
+            setCurrentIndex(c => c + 1);
+            setInput([]);
+          } else {
+            onComplete();
+          }
+        }, 800);
+      }
+    } else {
+      playSound('wrong');
     }
   };
 
   const handleCancel = (index: number) => {
-    // If we cancel, just remove from that index onwards
     setInput(prev => prev.slice(0, index));
   };
 

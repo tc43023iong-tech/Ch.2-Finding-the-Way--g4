@@ -6,35 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Kawaii Adventure</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --kawaii-pink: #ffdae9;
             --kawaii-blue: #dcf2ff;
             --kawaii-yellow: #fff9c4;
             --kawaii-green: #e1fbd7;
-            --kawaii-text: #2d2d2d; /* High contrast dark grey for best readability */
+            --kawaii-text: #2d2d2d; 
         }
         body {
-            font-family: 'Indie Flower', cursive;
-            background: #fdf6f9; /* Solid soft base */
+            font-family: 'Fredoka', sans-serif;
+            background: #fdf6f9;
             background-image: linear-gradient(135deg, #fdf6f9 25%, #f5fbff 100%);
             min-height: 100vh;
             color: var(--kawaii-text);
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23ff69b4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'), auto;
+            cursor: auto;
         }
         .paper-texture {
             background-image: url('https://www.transparenttextures.com/patterns/handmade-paper.png');
         }
         .wobbly-border {
             border: 6px solid #ffb3d9;
-            border-radius: 30px; /* Simplified for better focus */
+            border-radius: 40px;
             background: white;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
         }
         .crayon-card {
             border: 2px solid #e2e8f0;
-            border-radius: 16px;
+            border-radius: 20px;
             background: white;
             transition: all 0.2s ease-in-out;
         }
@@ -50,7 +50,6 @@
         .animate-float-slow {
             animation: float-slow 6s ease-in-out infinite;
         }
-        /* Custom thick scrollbar for kids */
         ::-webkit-scrollbar {
             width: 14px;
         }
@@ -70,12 +69,13 @@
           border-bottom: none;
         }
         .label-tag {
-          font-weight: 800;
-          font-size: 1.25rem;
+          font-weight: 700;
+          font-size: 1.15rem;
           color: #ff69b4;
           display: block;
           margin-bottom: 0.5rem;
           letter-spacing: 0.05em;
+          text-transform: uppercase;
         }
     </style>
 <script type="importmap">
