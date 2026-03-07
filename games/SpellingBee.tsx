@@ -9,34 +9,55 @@ interface SpellingBeeProps {
 
 const SpellingBee: React.FC<SpellingBeeProps> = ({ onComplete }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [input, setInput] = useState<string[]>([]);
+  const [usedIndices, setUsedIndices] = useState<number[]>([]);
   const currentWord = WORD_LIST[currentIndex].en.toLowerCase();
   
   const letterOptions = useMemo(() => {
-    const letters = currentWord.split('').filter(l => l !== ' ');
-    const extras = 'abcdefghijklmnopqrstuvwxyz'.split('').sort(() => 0.5 - Math.random()).slice(0, 4);
-    return [...letters, ...extras].sort(() => 0.5 - Math.random());
+    return currentWord.split('')
+      .filter(l => l !== ' ')
+      .map((char, idx) => ({ char, originalIdx: idx }))
+      .sort(() => 0.5 - Math.random());
   }, [currentWord]);
 
-  const handleLetterClick = (char: string) => {
-    let nextInput = [...input];
-    const targetWithSpaces = currentWord.split('');
-    
-    if (targetWithSpaces[nextInput.length] === ' ') {
-      nextInput.push(' ');
-    }
-    
-    const targetChar = targetWithSpaces[nextInput.length];
-    if (char === targetChar) {
-      playSound('correct');
-      nextInput.push(char);
-      setInput(nextInput);
+  const handleLetterClick = (char: string, optionIdx: number) => {
+    if (usedIndices.includes(optionIdx)) return;
 
-      if (nextInput.join('') === currentWord) {
+    const targetWithSpaces = currentWord.split('');
+    // Calculate current input length including spaces that were auto-filled
+    let currentInputText = "";
+    let tempUsedCount = 0;
+    for (let i = 0; i < targetWithSpaces.length; i++) {
+      if (targetWithSpaces[i] === ' ') {
+        currentInputText += ' ';
+      } else if (tempUsedCount < usedIndices.length) {
+        // This is a letter that was already filled
+        currentInputText += targetWithSpaces[i];
+        tempUsedCount++;
+      } else {
+        break;
+      }
+    }
+
+    const nextTargetChar = targetWithSpaces[currentInputText.length];
+    
+    if (char === nextTargetChar) {
+      playSound('correct');
+      const nextUsedIndices = [...usedIndices, optionIdx];
+      setUsedIndices(nextUsedIndices);
+
+      // Check if complete
+      const filledWord = targetWithSpaces.map((c, idx) => {
+        if (c === ' ') return ' ';
+        // Find if this letter position (nth letter) has been filled
+        const letterPos = targetWithSpaces.slice(0, idx + 1).filter(x => x !== ' ').length;
+        return nextUsedIndices.length >= letterPos ? c : null;
+      });
+
+      if (filledWord.every(c => c !== null)) {
         setTimeout(() => {
           if (currentIndex < WORD_LIST.length - 1) {
             setCurrentIndex(c => c + 1);
-            setInput([]);
+            setUsedIndices([]);
           } else {
             onComplete();
           }
@@ -47,8 +68,11 @@ const SpellingBee: React.FC<SpellingBeeProps> = ({ onComplete }) => {
     }
   };
 
-  const handleCancel = (index: number) => {
-    setInput(prev => prev.slice(0, index));
+  const handleCancel = (letterIdx: number) => {
+    // letterIdx is the index in the full word string
+    const targetWithSpaces = currentWord.split('');
+    const lettersBefore = targetWithSpaces.slice(0, letterIdx + 1).filter(x => x !== ' ').length;
+    setUsedIndices(prev => prev.slice(0, lettersBefore - 1));
   };
 
   return (
@@ -69,30 +93,34 @@ const SpellingBee: React.FC<SpellingBeeProps> = ({ onComplete }) => {
       <div className="flex flex-wrap justify-center gap-2 mb-12 min-h-[80px]">
         {currentWord.split('').map((char, idx) => {
           const isSpace = char === ' ';
-          const filled = input[idx];
+          const lettersBefore = currentWord.slice(0, idx + 1).split('').filter(x => x !== ' ').length;
+          const isFilled = !isSpace && usedIndices.length >= lettersBefore;
+          
           return (
             <div
               key={idx}
-              onClick={() => filled && handleCancel(idx)}
+              onClick={() => isFilled && handleCancel(idx)}
               className={`w-12 h-16 flex items-center justify-center text-4xl font-bold crayon-border cursor-pointer transition-all ${
                 isSpace ? 'border-none bg-transparent w-6' : 
-                filled ? 'bg-yellow-200 animate-wiggle' : 'bg-gray-100'
+                isFilled ? 'bg-yellow-200 animate-wiggle' : 'bg-gray-100'
               }`}
             >
-              {filled !== ' ' ? filled : ''}
+              {isFilled ? char : ''}
             </div>
           );
         })}
       </div>
 
       <div className="flex flex-wrap justify-center gap-4">
-        {letterOptions.map((l, idx) => (
+        {letterOptions.map((opt, idx) => (
           <button
             key={idx}
-            onClick={() => handleLetterClick(l)}
-            className="w-16 h-16 bg-white text-3xl font-bold crayon-border hover:bg-blue-100 transform active:scale-90"
+            onClick={() => handleLetterClick(opt.char, idx)}
+            className={`w-16 h-16 bg-white text-3xl font-bold crayon-border transition-all transform active:scale-90 ${
+              usedIndices.includes(idx) ? 'opacity-0 pointer-events-none scale-0' : 'hover:bg-blue-100'
+            }`}
           >
-            {l}
+            {opt.char}
           </button>
         ))}
       </div>

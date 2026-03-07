@@ -16,10 +16,10 @@ const TugOfWar: React.FC<TugOfWarProps> = ({ onComplete }) => {
   const [winner, setWinner] = useState<number | null>(null);
   const [feedback, setFeedback] = useState<{team: 1 | 2 | 'both', type: 'claimed' | 'too-slow' | 'wrong' | 'none'}>({team: 'both', type: 'none'});
 
-  // Groups of 5 words
+  // Groups of 9 words
   const roundWords = useMemo(() => {
-    const start = round * 5;
-    return WORD_LIST.slice(start, start + 5);
+    const start = round * 9;
+    return WORD_LIST.slice(start, start + 9);
   }, [round]);
 
   const currentWord = roundWords[sharedIndex];
@@ -32,11 +32,11 @@ const TugOfWar: React.FC<TugOfWarProps> = ({ onComplete }) => {
   }, [currentWord, sharedIndex]);
 
   const checkRoundEnd = (s1: number, s2: number, nextIdx: number) => {
-    if (nextIdx >= 5) {
+    if (nextIdx >= 9) {
       setGameEnded(true);
       setWinner(s1 > s2 ? 1 : 2);
       setTimeout(() => {
-        if ((round + 1) * 5 >= WORD_LIST.length) {
+        if ((round + 1) * 9 >= WORD_LIST.length) {
           onComplete();
         } else {
           setRound(r => r + 1);
@@ -172,7 +172,7 @@ const TugOfWar: React.FC<TugOfWarProps> = ({ onComplete }) => {
            </div>
            
            <div className="absolute bottom-6 bg-white px-6 py-2 rounded-full border-2 border-gray-200 text-gray-400 font-bold uppercase tracking-widest text-sm">
-             Word {sharedIndex + 1} of 5
+             Word {sharedIndex + 1} of 9
            </div>
         </div>
 
